@@ -154,6 +154,7 @@
     fd
     flameshot
     gcc
+    gh
     git
     copyq
     gnome-screenshot
