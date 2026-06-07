@@ -9,6 +9,8 @@ Browser automation rules:
   first.
 - If there is no dedicated MCP path and the site is not sensitive, use the
   Chrome DevTools MCP server defined in `.codex/config.toml`.
+- Use Chawan (`cha`) for terminal-first text browsing, quick page reads, man
+  pages, and low-interaction documentation lookup.
 - For sensitive sites such as banking, securities, payments, or account
   management, use visible Chrome UI automation only. Do not use headless mode,
   stealth/fingerprint spoofing, proxy rotation, CAPTCHA bypass, or other
@@ -23,6 +25,8 @@ Local browser entry point:
 - If MCP tools are not loaded in the current session, use
   `./scripts/browser-cdp.mjs` as a local fallback for non-sensitive page open,
   title, text, and screenshot operations.
+- Use `www-browser` for terminal browser fallback and `pcha` as the pager for
+  ANSI/text output.
 - The Codex-controlled browser session comes from the Chrome DevTools MCP
   server, which launches Chrome with a dedicated persistent profile.
 - Home Manager installs the global `browser-control` skill and ensures the

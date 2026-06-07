@@ -10,9 +10,11 @@ description: Use when the user asks Codex to operate a website, inspect Chrome, 
 1. If the named site or service has a dedicated MCP server, app connector, or
    first-party tool available in the current session, use that structured path
    first.
-2. If no dedicated structured path exists and the site is not sensitive, use
+2. If no dedicated structured path exists and the task is text-oriented, use
+   Chawan (`cha`, `www-browser`, `pcha`, `ddgr`, `rdrview`).
+3. If no dedicated structured path exists and the site is not sensitive, use
    the `chrome_devtools` MCP server.
-3. If the site is sensitive, use visible Chrome only and keep the user present.
+4. If the site is sensitive, use visible Chrome only and keep the user present.
 
 When tools are deferred, search for relevant tools before falling back to
 Chrome. Typical structured routes include GitHub, Notion, OpenAI Platform,
@@ -65,6 +67,23 @@ If `chrome_devtools` tools are not available in the current Codex session,
 check `/home/qrbao/.codex/config.toml`. If the config exists, explain that a
 new Codex session may be needed for MCP discovery, and use available local
 browser helpers only when the task does not require sensitive interaction.
+
+## Terminal browser
+
+Use Chawan for terminal-first browsing:
+
+```bash
+cha https://example.com
+cha -d https://example.com
+ddgr query words
+rdrview -Hu https://example.com
+www-browser https://example.com
+pcha file.txt
+```
+
+Use Chawan for documentation, article text, simple search-result reading, and
+pager workflows. Use Chrome when JavaScript, login, screenshots, media, or
+visual layout matters.
 
 ## Local helper
 

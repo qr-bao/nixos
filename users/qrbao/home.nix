@@ -1,5 +1,14 @@
 { config, lib, pkgs, ... }:
 
+let
+  wwwBrowser = pkgs.writeShellScriptBin "www-browser" ''
+    exec ${pkgs.chawan}/bin/cha "$@"
+  '';
+
+  pcha = pkgs.writeShellScriptBin "pcha" ''
+    exec ${pkgs.chawan}/bin/cha -T text/x-ansi "$@"
+  '';
+in
 {
   home.username = "qrbao";
   home.homeDirectory = "/home/qrbao";
@@ -10,7 +19,37 @@
 
   home.packages = with pkgs; [
     copyq
+    chawan
+    ddgr
+    rdrview
+    wwwBrowser
+    pcha
   ];
+
+  home.sessionVariables = {
+    BROWSER = "www-browser";
+    MANPAGER = "mancha";
+    PAGER = "pcha";
+    COLORTERM = "truecolor";
+  };
+
+  home.file.".config/chawan/config.toml".text = ''
+    [start]
+    visual-home = "about:chawan"
+
+    [buffer]
+    images = false
+    mark-links = true
+
+    [input]
+    bracketed-paste = true
+
+    [display]
+    image-mode = "none"
+
+    [page]
+    'SPC r' = "pager.externFilterSource('rdrview -Hu \"$CHA_URL\"')"
+  '';
 
   dconf.settings = {
     "org/gnome/shell/keybindings" = {
