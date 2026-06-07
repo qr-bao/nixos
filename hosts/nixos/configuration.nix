@@ -45,6 +45,17 @@
     enable32Bit = true;
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true;
+      };
+    };
+  };
+  boot.kernelModules = [ "btusb" ];
+
   services.xserver.videoDrivers = [ "nvidia" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.nvidia = {
@@ -106,11 +117,13 @@
   ];
 
   services.printing.enable = true;
+  services.blueman.enable = true;
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    wireplumber.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -157,6 +170,9 @@
     gh
     git
     google-chrome
+    alsa-utils
+    bluez
+    blueman
     copyq
     gnome-screenshot
     gnome-tweaks
@@ -170,8 +186,10 @@
     nodejs
     config.boot.kernelPackages.nvidia_x11.settings
     p7zip
+    pavucontrol
     pciutils
     pkg-config
+    pulseaudio
     pnpm
     python3
     ripgrep
