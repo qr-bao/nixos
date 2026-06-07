@@ -156,6 +156,7 @@
     gcc
     gh
     git
+    google-chrome
     copyq
     gnome-screenshot
     gnome-tweaks
