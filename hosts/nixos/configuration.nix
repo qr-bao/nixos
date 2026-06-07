@@ -137,6 +137,9 @@
     isNormalUser = true;
     description = "qrbao";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHmcHstm9J9yfA2Vu2IN3NxQ3NIxPX3mSqBb90058klT macbook"
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
