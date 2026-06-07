@@ -16,8 +16,6 @@ mkdir -p \
   "$repo_root/trace"
 
 cp /etc/nixos/configuration.nix "$repo_root/system/current/configuration.nix"
-sed -E 's#"?/etc/nixos/hardware-configuration\.nix"?#./hardware-configuration.nix#' \
-  /etc/nixos/configuration.nix > "$repo_root/hosts/nixos/configuration.nix"
 cp /etc/nixos/hardware-configuration.nix "$repo_root/hosts/nixos/hardware-configuration.nix"
 
 cp /home/qrbao/.config/fcitx5/profile "$repo_root/user/current/fcitx5/profile"
@@ -61,6 +59,7 @@ if [[ -f /home/qrbao/.codex/history.jsonl ]]; then
   sed -E \
     -e 's/sudo password is [^,"]+/sudo password is [REDACTED]/g' \
     -e 's/password is four space \[[^]]*\]/password is [REDACTED]/g' \
+    -e 's/密码是四个空格 【[[:space:]]*】/密码是 [REDACTED]/g' \
     /home/qrbao/.codex/history.jsonl > "$repo_root/trace/raw-history.jsonl"
 fi
 
