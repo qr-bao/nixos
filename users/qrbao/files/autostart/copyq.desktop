@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=CopyQ
+Comment=Start clipboard history manager
+Exec=copyq --start-server
+Terminal=false
+X-GNOME-Autostart-enabled=true
+StartupNotify=false
