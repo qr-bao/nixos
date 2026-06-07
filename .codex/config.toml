@@ -1,0 +1,14 @@
+[mcp_servers.chrome_devtools]
+command = "npx"
+args = [
+  "-y",
+  "chrome-devtools-mcp@latest",
+  "--channel=stable",
+  "--userDataDir=/home/qrbao/.local/share/codex-browser/mcp-profile",
+  "--headless=false",
+]
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled = true
+required = false
+default_tools_approval_mode = "prompt"

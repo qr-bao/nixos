@@ -43,6 +43,18 @@ sudo nixos-rebuild switch --rollback
 3. Review the diff with `git diff`.
 4. Commit the change.
 
+## Browser Control
+
+Start the shared Chrome session with:
+
+```bash
+./scripts/browser-start.sh
+```
+
+The browser automation policy and Codex MCP wiring live in
+[`AGENTS.md`](/home/qrbao/nixos-setup/AGENTS.md) and
+[`docs/browser-control.md`](/home/qrbao/nixos-setup/docs/browser-control.md).
+
 ## Rollback model
 
 - Full config rollback: checkout an older Git commit and run
