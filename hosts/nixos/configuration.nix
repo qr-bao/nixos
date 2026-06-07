@@ -16,6 +16,10 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+  };
 
   time.timeZone = "Asia/Tokyo";
 
@@ -146,15 +150,20 @@
   };
 
   virtualisation.docker.enable = true;
+  services.tailscale.enable = true;
 
   services.openssh = {
     enable = true;
+    openFirewall = false;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
+      PubkeyAuthentication = true;
       PermitRootLogin = "no";
+      X11Forwarding = false;
     };
   };
+  programs.mosh.enable = true;
 
   environment.systemPackages = with pkgs; [
     bat
@@ -195,6 +204,7 @@
     ripgrep
     rustup
     tmux
+    tailscale
     tree
     unzip
     usbutils

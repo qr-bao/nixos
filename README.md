@@ -57,6 +57,11 @@ The browser automation policy and Codex MCP wiring live in
 Home Manager also installs the global `browser-control` Codex skill and adds
 the `chrome_devtools` MCP server if it is missing from `~/.codex/config.toml`.
 
+## Remote Access
+
+SSH and Tailscale setup notes live in
+[`docs/remote-access.md`](/home/qrbao/nixos-setup/docs/remote-access.md).
+
 ## Rollback model
 
 - Full config rollback: checkout an older Git commit and run
