@@ -13,10 +13,21 @@ This repo supports two browser paths:
 
 This launches a normal local Chrome window with a dedicated manual profile.
 
+For current sessions where MCP tools were not loaded at startup, use the local
+CDP fallback:
+
+```bash
+./scripts/browser-cdp.mjs open https://example.com
+./scripts/browser-cdp.mjs title
+./scripts/browser-cdp.mjs screenshot /tmp/page.png
+```
+
 ## Codex browser route
 
 The project-scoped Codex config adds a `chrome_devtools` MCP server that
 launches its own persistent Chrome profile for Codex-controlled browser work.
+Home Manager also installs the global `browser-control` skill and manages the
+same MCP server in `~/.codex/config.toml`.
 
 Use that server for normal browser work. For sensitive sites, stay in visible
 Chrome and keep the user present for authentication and final confirmation.
@@ -28,3 +39,5 @@ Chrome and keep the user present for authentication and final confirmation.
 - Do not use headless mode for sensitive sites.
 - Do not use stealth, proxy rotation, CAPTCHA bypass, or other anti-detection
   tactics.
+- Do not automate final confirmations for trades, transfers, payments, account
+  recovery, or destructive account changes.

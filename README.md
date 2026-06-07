@@ -54,6 +54,8 @@ Start the shared Chrome session with:
 The browser automation policy and Codex MCP wiring live in
 [`AGENTS.md`](/home/qrbao/nixos-setup/AGENTS.md) and
 [`docs/browser-control.md`](/home/qrbao/nixos-setup/docs/browser-control.md).
+Home Manager also installs the global `browser-control` Codex skill and adds
+the `chrome_devtools` MCP server if it is missing from `~/.codex/config.toml`.
 
 ## Rollback model
 

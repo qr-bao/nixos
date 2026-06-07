@@ -45,5 +45,38 @@
       install -Dm0644 ${./files/copyq/copyq-filter.ini} "$HOME/.config/copyq/copyq-filter.ini"
       install -Dm0644 ${./files/copyq/copyq-monitor.ini} "$HOME/.config/copyq/copyq-monitor.ini"
       install -Dm0644 ${./files/copyq/copyq_tabs.ini} "$HOME/.config/copyq/copyq_tabs.ini"
+
+      install -Dm0644 ${./files/codex/skills/browser-control/SKILL.md} "$HOME/.codex/skills/browser-control/SKILL.md"
+
+      mkdir -p "$HOME/.codex"
+      touch "$HOME/.codex/config.toml"
+      tmp_config="$(mktemp)"
+      ${pkgs.gawk}/bin/awk '
+        /^\[mcp_servers\.chrome_devtools\]$/ { skip = 1; next }
+        /^\[/ && skip { skip = 0 }
+        !skip { print }
+      ' "$HOME/.codex/config.toml" > "$tmp_config"
+      mv "$tmp_config" "$HOME/.codex/config.toml"
+
+      cat >> "$HOME/.codex/config.toml" <<'EOF'
+
+[mcp_servers.chrome_devtools]
+command = "npx"
+args = [
+  "-y",
+  "chrome-devtools-mcp@latest",
+  "--channel=stable",
+  "--userDataDir=/home/qrbao/.local/share/codex-browser/mcp-profile",
+  "--headless=false",
+  "--redactNetworkHeaders=true",
+  "--no-usage-statistics",
+  "--no-performance-crux",
+]
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled = true
+required = false
+default_tools_approval_mode = "prompt"
+EOF
     '';
 }

@@ -6,6 +6,9 @@ args = [
   "--channel=stable",
   "--userDataDir=/home/qrbao/.local/share/codex-browser/mcp-profile",
   "--headless=false",
+  "--redactNetworkHeaders=true",
+  "--no-usage-statistics",
+  "--no-performance-crux",
 ]
 startup_timeout_sec = 20
 tool_timeout_sec = 60
