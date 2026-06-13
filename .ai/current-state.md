@@ -21,10 +21,15 @@ projects in a controlled way.
   `origin/main`.
 - The NixOS config is being shaped into a portable first version by
   parameterizing `hostName`, `userName`, and `homeDirectory` in the flake.
+- The reusable Home Manager logic now lives in `users/common/home.nix` and
+  receives `userFilesDir` from the flake so the login user can change more
+  cleanly.
 - `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`
   completed successfully after the portability refactor.
 - The portable-first-version commit was published as `eafdae2` and pushed to
   `origin/main`.
+- The shared-user-module refactor built successfully after moving the reusable
+  module to `users/common/home.nix` and parameterizing `userFilesDir`.
 
 ## Known Risks
 
@@ -37,6 +42,8 @@ projects in a controlled way.
 - The portable first version still assumes the current hardware file and the
   existing `users/qrbao/` layout; a fully generic multi-user template can come
   later.
+- The repo still has account-specific snapshot material in `users/qrbao/files/`
+  for this machine.
 
 ## Next Steps
 
@@ -46,3 +53,5 @@ projects in a controlled way.
 3. Keep the GitHub remote as the durable backup and review history.
 4. Decide whether to generalize the user directory layout after the first
    cross-machine test.
+5. Keep `users/common/home.nix` as the shared module and pass account-specific
+   snapshot paths explicitly.

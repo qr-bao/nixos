@@ -21,7 +21,8 @@ method setup, screenshot shortcut, and clipboard history shortcut.
 
 - `flake.nix` and `flake.lock`: pinned NixOS and Home Manager inputs
 - `hosts/nixos/`: host-level NixOS configuration and hardware profile
-- `users/qrbao/home.nix`: tracked user configuration applied by Home Manager
+- `users/common/home.nix`: shared Home Manager configuration applied to the
+  selected login user
 - `users/qrbao/files/`: selected mutable app config copied into place
 - `system/current/` and `user/current/`: live-state snapshots for audit
 - `trace/`: redacted Codex prompt/action history and human-readable notes

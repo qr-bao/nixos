@@ -20,6 +20,10 @@ read before doing work.
 - Verified the portable refactor with `nix eval` and
   `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
 - Published the portable-first-version commit as `eafdae2` on `origin/main`.
+- Moved the shared Home Manager logic to `users/common/home.nix` and passed
+  `userFilesDir` from the flake so the login user can change without editing
+  the reusable module.
+- Verified the shared-user-module refactor with the same full NixOS build.
 
 ## How To Resume
 
@@ -36,3 +40,5 @@ read before doing work.
 - Decide how future project repos will be linked into this registry.
 - Decide whether to rename or generalize `users/qrbao/` for a later, more
   generic public template.
+- If a future machine uses a different account layout, point `userFilesDir`
+  at that machine's snapshot directory or create a new one.

@@ -24,6 +24,9 @@ Updated: 2026-06-13
   Chrome DevTools MCP path, config lookup note, or local helper reference.
 - Verified the portable-first-version commit pushed successfully as
   `eafdae2` on `origin/main`.
+- Verified the username-neutral shared user module by adding
+  `users/common/home.nix`, passing `userFilesDir` from the flake, and rerunning
+  `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
 
 ## Notes
 

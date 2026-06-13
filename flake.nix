@@ -29,8 +29,9 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
               inherit userName homeDirectory;
+              userFilesDir = ./users/qrbao/files;
             };
-            home-manager.users.${userName} = import ./users/qrbao/home.nix;
+            home-manager.users.${userName} = import ./users/common/home.nix;
           }
         ];
       };

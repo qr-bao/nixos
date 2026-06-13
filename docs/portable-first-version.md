@@ -7,7 +7,7 @@ are concentrated in a small set of parameters.
 ## Shared Parts
 
 - system packages and desktop defaults
-- Home Manager setup for the primary user
+- shared Home Manager setup for the selected login user
 - Codex, GitHub, browser, terminal, and editor workflow defaults
 - repo-local memory under `.ai/`
 
@@ -18,6 +18,11 @@ are concentrated in a small set of parameters.
 - the login username and home directory
 - bootloader and disk details
 - live-state snapshots under `system/current/` and `user/current/`
+- the current account-specific snapshots under `users/qrbao/files/`
+
+The shared user module is `users/common/home.nix`; the flake passes
+`userFilesDir` to it so the account-specific snapshot directory can change
+without rewriting the reusable module.
 
 ## Reuse On Another Computer
 
