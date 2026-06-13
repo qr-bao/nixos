@@ -51,7 +51,7 @@ args = [
   "-y",
   "chrome-devtools-mcp@latest",
   "--channel=stable",
-  "--userDataDir=/home/qrbao/.local/share/codex-browser/mcp-profile",
+  "--userDataDir=$HOME/.local/share/codex-browser/mcp-profile",
   "--headless=false",
   "--redactNetworkHeaders=true",
   "--no-usage-statistics",
@@ -64,9 +64,9 @@ checking web apps, filling low-risk forms, downloading public documents, or
 testing local sites.
 
 If `chrome_devtools` tools are not available in the current Codex session,
-check `/home/qrbao/.codex/config.toml`. If the config exists, explain that a
-new Codex session may be needed for MCP discovery, and use available local
-browser helpers only when the task does not require sensitive interaction.
+check `~/.codex/config.toml`. If the config exists, explain that a new Codex
+session may be needed for MCP discovery, and use available local browser
+helpers only when the task does not require sensitive interaction.
 
 ## Terminal browser
 
@@ -87,7 +87,6 @@ visual layout matters.
 
 ## Local helper
 
-In the NixOS setup repo, `/home/qrbao/nixos-setup/scripts/browser-start.sh`
-opens a normal dedicated Chrome profile for manual inspection. It is not the
-main automation path; Codex-controlled browsing should use `chrome_devtools`
-when available.
+In the NixOS setup repo, `scripts/browser-start.sh` opens a normal dedicated
+Chrome profile for manual inspection. It is not the main automation path;
+Codex-controlled browsing should use `chrome_devtools` when available.

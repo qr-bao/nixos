@@ -14,6 +14,11 @@ read before doing work.
 - Added a project registry for future projects that join this repository.
 - Linked the README to the system memory files so the entry point is obvious.
 - Committed the scaffold as `788b109` and pushed it to `origin/main`.
+- Parameterized the flake and shared modules with `hostName`, `userName`, and
+  `homeDirectory` so the setup can be reused on another computer more easily.
+- Added `docs/portable-first-version.md` as a short reuse guide.
+- Verified the portable refactor with `nix eval` and
+  `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
 
 ## How To Resume
 
@@ -28,3 +33,5 @@ read before doing work.
 - Fill in the project registry with real project entries as they are added.
 - Keep the memory files current whenever the system changes.
 - Decide how future project repos will be linked into this registry.
+- Decide whether to rename or generalize `users/qrbao/` for a later, more
+  generic public template.

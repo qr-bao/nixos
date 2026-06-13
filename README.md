@@ -10,6 +10,9 @@ Repo-local memory for the system lives in `.ai/`. Start with:
 - `.ai/verification.md`
 - `.ai/projects/index.md`
 
+For a first reusable cross-machine version, see
+[`docs/portable-first-version.md`](docs/portable-first-version.md).
+
 The main entry point is `flake.nix`. A clean NixOS install can clone this repo
 and build the `nixos` host to get the same system packages, desktop input
 method setup, screenshot shortcut, and clipboard history shortcut.
@@ -59,25 +62,24 @@ Start the shared Chrome session with:
 ```
 
 The browser automation policy and Codex MCP wiring live in
-[`AGENTS.md`](/home/qrbao/nixos-setup/AGENTS.md) and
-[`docs/browser-control.md`](/home/qrbao/nixos-setup/docs/browser-control.md).
+[`AGENTS.md`](AGENTS.md) and [`docs/browser-control.md`](docs/browser-control.md).
 Home Manager also installs the global `browser-control` Codex skill and adds
 the `chrome_devtools` MCP server if it is missing from `~/.codex/config.toml`.
 
 ## Remote Access
 
 SSH and Tailscale setup notes live in
-[`docs/remote-access.md`](/home/qrbao/nixos-setup/docs/remote-access.md).
+[`docs/remote-access.md`](docs/remote-access.md).
 
 ## Neovim
 
 The default Neovim setup and keymap guide live in
-[`docs/neovim.md`](/home/qrbao/nixos-setup/docs/neovim.md).
+[`docs/neovim.md`](docs/neovim.md).
 
 ## Terminal
 
 The default terminal setup and pane/session guide live in
-[`docs/terminal.md`](/home/qrbao/nixos-setup/docs/terminal.md).
+[`docs/terminal.md`](docs/terminal.md).
 
 ## Rollback model
 

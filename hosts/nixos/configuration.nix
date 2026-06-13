@@ -1,5 +1,18 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, userName, homeDirectory, ... }:
 
+let
+  codex = pkgs.writeShellScriptBin "codex" ''
+    exec ${homeDirectory}/.codex/packages/standalone/current/bin/codex "$@"
+  '';
+
+  codex1 = pkgs.writeShellScriptBin "codex1" ''
+    exec ${homeDirectory}/.local/bin/codex1 "$@"
+  '';
+
+  codex2 = pkgs.writeShellScriptBin "codex2" ''
+    exec ${homeDirectory}/.local/bin/codex2 "$@"
+  '';
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -14,7 +27,7 @@
     options = lib.mkForce [ "fmask=0077" "dmask=0077" ];
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = hostName;
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
@@ -133,9 +146,9 @@
     pulse.enable = true;
   };
 
-  users.users."qrbao" = {
+  users.users."${userName}" = {
     isNormalUser = true;
-    description = "qrbao";
+    description = userName;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHmcHstm9J9yfA2Vu2IN3NxQ3NIxPX3mSqBb90058klT macbook"
@@ -147,6 +160,7 @@
 
   programs.firefox.enable = true;
   programs.git.enable = true;
+  programs.ssh.systemd-ssh-proxy.enable = false;
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -172,6 +186,9 @@
     bat
     btop
     cmake
+    codex
+    codex1
+    codex2
     curl
     dconf-editor
     direnv

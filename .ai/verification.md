@@ -15,6 +15,13 @@ Updated: 2026-06-13
 - Verified the push with
   `git -C /home/qrbao/nixos-setup push origin main`, which updated
   `origin/main` from `776f04c` to `788b109`.
+- Verified the portable refactor parses with
+  `nix eval --raw /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.networking.hostName`,
+  which returned `nixos`.
+- Verified the full system build with
+  `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
+- Verified the browser-control skill no longer hard-codes `/home/qrbao` in the
+  Chrome DevTools MCP path, config lookup note, or local helper reference.
 
 ## Notes
 

@@ -19,6 +19,10 @@ projects in a controlled way.
   being mixed into unrelated notes.
 - The repo-local memory scaffold was committed as `788b109` and pushed to
   `origin/main`.
+- The NixOS config is being shaped into a portable first version by
+  parameterizing `hostName`, `userName`, and `homeDirectory` in the flake.
+- `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`
+  completed successfully after the portability refactor.
 
 ## Known Risks
 
@@ -28,6 +32,9 @@ projects in a controlled way.
 - The unrelated edits in `.codex/config.toml`, `docs/remote-access.md`,
   `hosts/nixos/configuration.nix`, `users/qrbao/home.nix`, `docs/neovim.md`,
   and `docs/terminal.md` were left untouched.
+- The portable first version still assumes the current hardware file and the
+  existing `users/qrbao/` layout; a fully generic multi-user template can come
+  later.
 
 ## Next Steps
 
@@ -35,3 +42,5 @@ projects in a controlled way.
    `.ai/verification.md` alongside system changes.
 2. Add new projects to `.ai/projects/index.md` when they join this system.
 3. Keep the GitHub remote as the durable backup and review history.
+4. Decide whether to generalize the user directory layout after the first
+   cross-machine test.
