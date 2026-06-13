@@ -13,6 +13,7 @@ read before doing work.
 - Established a repo-local `.ai/` memory layer for the NixOS system.
 - Added a project registry for future projects that join this repository.
 - Linked the README to the system memory files so the entry point is obvious.
+- Committed the scaffold as `788b109` and pushed it to `origin/main`.
 
 ## How To Resume
 
@@ -26,3 +27,4 @@ read before doing work.
 
 - Fill in the project registry with real project entries as they are added.
 - Keep the memory files current whenever the system changes.
+- Decide how future project repos will be linked into this registry.

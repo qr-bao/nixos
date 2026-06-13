@@ -17,12 +17,17 @@ projects in a controlled way.
   verification notes.
 - Future projects should be registered in `.ai/projects/index.md` instead of
   being mixed into unrelated notes.
+- The repo-local memory scaffold was committed as `788b109` and pushed to
+  `origin/main`.
 
 ## Known Risks
 
 - The worktree already contains unrelated local edits in existing files.
 - Future project onboarding needs a consistent registration pattern, not ad hoc
   notes scattered across the repo.
+- The unrelated edits in `.codex/config.toml`, `docs/remote-access.md`,
+  `hosts/nixos/configuration.nix`, `users/qrbao/home.nix`, `docs/neovim.md`,
+  and `docs/terminal.md` were left untouched.
 
 ## Next Steps
 
