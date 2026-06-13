@@ -19,6 +19,7 @@ read before doing work.
 - Added `docs/portable-first-version.md` as a short reuse guide.
 - Verified the portable refactor with `nix eval` and
   `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
+- Published the portable-first-version commit as `eafdae2` on `origin/main`.
 
 ## How To Resume
 

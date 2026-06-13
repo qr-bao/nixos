@@ -23,6 +23,8 @@ projects in a controlled way.
   parameterizing `hostName`, `userName`, and `homeDirectory` in the flake.
 - `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`
   completed successfully after the portability refactor.
+- The portable-first-version commit was published as `eafdae2` and pushed to
+  `origin/main`.
 
 ## Known Risks
 

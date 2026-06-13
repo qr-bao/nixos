@@ -22,6 +22,8 @@ Updated: 2026-06-13
   `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
 - Verified the browser-control skill no longer hard-codes `/home/qrbao` in the
   Chrome DevTools MCP path, config lookup note, or local helper reference.
+- Verified the portable-first-version commit pushed successfully as
+  `eafdae2` on `origin/main`.
 
 ## Notes
 
