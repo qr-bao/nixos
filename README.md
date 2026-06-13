@@ -3,6 +3,13 @@
 This repository is the reproducible NixOS desktop configuration for this
 machine, plus an audit trail of user-facing changes made during setup.
 
+Repo-local memory for the system lives in `.ai/`. Start with:
+
+- `.ai/current-state.md`
+- `.ai/handoff.md`
+- `.ai/verification.md`
+- `.ai/projects/index.md`
+
 The main entry point is `flake.nix`. A clean NixOS install can clone this repo
 and build the `nixos` host to get the same system packages, desktop input
 method setup, screenshot shortcut, and clipboard history shortcut.
@@ -62,6 +69,16 @@ the `chrome_devtools` MCP server if it is missing from `~/.codex/config.toml`.
 SSH and Tailscale setup notes live in
 [`docs/remote-access.md`](/home/qrbao/nixos-setup/docs/remote-access.md).
 
+## Neovim
+
+The default Neovim setup and keymap guide live in
+[`docs/neovim.md`](/home/qrbao/nixos-setup/docs/neovim.md).
+
+## Terminal
+
+The default terminal setup and pane/session guide live in
+[`docs/terminal.md`](/home/qrbao/nixos-setup/docs/terminal.md).
+
 ## Rollback model
 
 - Full config rollback: checkout an older Git commit and run
@@ -79,3 +96,5 @@ SSH and Tailscale setup notes live in
 - Review diffs before publishing. Do not commit SSH private keys, browser
   profiles, API tokens, password stores, clipboard history databases, or large
   personal files.
+- Register future projects in `.ai/projects/index.md` so the system stays
+  organized as more repos join this workflow.
