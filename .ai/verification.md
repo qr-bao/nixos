@@ -32,6 +32,8 @@ Updated: 2026-06-13
   same NixOS build still succeeds.
 - Verified the new-machine onboarding docs and runbook point at the machine
   manifest as the first edit target.
+- Verified the onboarding-flow commit pushed successfully as `b6984a3` on
+  `origin/main`.
 
 ## Notes
 

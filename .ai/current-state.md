@@ -28,6 +28,8 @@ projects in a controlled way.
   remaining machine-specific inputs are concentrated in one file.
 - The next-machine onboarding docs and runbook now point at the machine
   manifest as the first file to edit.
+- The per-machine-manifest onboarding pass was committed as `b6984a3` and
+  pushed to `origin/main`.
 - `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`
   completed successfully after the portability refactor.
 - The portable-first-version commit was published as `eafdae2` and pushed to

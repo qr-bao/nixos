@@ -28,6 +28,7 @@ read before doing work.
   `docs/new-machine-onboarding.md` plus `.ai/runbooks/new-machine-onboarding.md`
   to describe the repeatable next-computer flow.
 - Recorded the per-machine-manifest entry point in `.ai/decisions/0004-per-machine-manifest-entry-point.md`.
+- Published the onboarding-flow commit as `b6984a3` on `origin/main`.
 
 ## How To Resume
 
