@@ -24,6 +24,10 @@ projects in a controlled way.
 - The reusable Home Manager logic now lives in `users/common/home.nix` and
   receives `userFilesDir` from the flake so the login user can change more
   cleanly.
+- A per-machine manifest now lives in `hosts/nixos/machine.nix`, so the
+  remaining machine-specific inputs are concentrated in one file.
+- The next-machine onboarding docs and runbook now point at the machine
+  manifest as the first file to edit.
 - `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`
   completed successfully after the portability refactor.
 - The portable-first-version commit was published as `eafdae2` and pushed to
@@ -44,6 +48,8 @@ projects in a controlled way.
   later.
 - The repo still has account-specific snapshot material in `users/qrbao/files/`
   for this machine.
+- The repo still needs a second-machine smoke test to prove the manifest model
+  end to end.
 
 ## Next Steps
 
@@ -55,3 +61,5 @@ projects in a controlled way.
    cross-machine test.
 5. Keep `users/common/home.nix` as the shared module and pass account-specific
    snapshot paths explicitly.
+6. Use `hosts/nixos/machine.nix` as the one file to edit when onboarding the
+   next computer.

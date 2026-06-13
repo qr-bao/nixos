@@ -24,6 +24,10 @@ read before doing work.
   `userFilesDir` from the flake so the login user can change without editing
   the reusable module.
 - Verified the shared-user-module refactor with the same full NixOS build.
+- Added `hosts/nixos/machine.nix` as the per-machine manifest and added
+  `docs/new-machine-onboarding.md` plus `.ai/runbooks/new-machine-onboarding.md`
+  to describe the repeatable next-computer flow.
+- Recorded the per-machine-manifest entry point in `.ai/decisions/0004-per-machine-manifest-entry-point.md`.
 
 ## How To Resume
 
@@ -42,3 +46,4 @@ read before doing work.
   generic public template.
 - If a future machine uses a different account layout, point `userFilesDir`
   at that machine's snapshot directory or create a new one.
+- For the next computer, edit the machine manifest and hardware config first.

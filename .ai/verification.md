@@ -27,6 +27,11 @@ Updated: 2026-06-13
 - Verified the username-neutral shared user module by adding
   `users/common/home.nix`, passing `userFilesDir` from the flake, and rerunning
   `nix build /home/qrbao/nixos-setup#nixosConfigurations.nixos.config.system.build.toplevel --no-link`.
+- Verified the per-machine manifest layout by adding
+  `hosts/nixos/machine.nix`, building the system again, and confirming the
+  same NixOS build still succeeds.
+- Verified the new-machine onboarding docs and runbook point at the machine
+  manifest as the first edit target.
 
 ## Notes
 

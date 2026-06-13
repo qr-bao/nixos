@@ -12,14 +12,12 @@
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      hostName = "nixos";
-      userName = "qrbao";
-      homeDirectory = "/home/${userName}";
+      machine = import ./hosts/nixos/machine.nix;
     in {
-      nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${machine.hostName} = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit hostName userName homeDirectory;
+          inherit (machine) hostName userName homeDirectory userFilesDir;
         };
         modules = [
           ./hosts/nixos/configuration.nix
@@ -28,10 +26,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              inherit userName homeDirectory;
-              userFilesDir = ./users/qrbao/files;
+              inherit (machine) userName homeDirectory userFilesDir;
             };
-            home-manager.users.${userName} = import ./users/common/home.nix;
+            home-manager.users.${machine.userName} = import ./users/common/home.nix;
           }
         ];
       };

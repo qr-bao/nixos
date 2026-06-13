@@ -14,6 +14,7 @@ are concentrated in a small set of parameters.
 ## Machine-Specific Parts
 
 - `hosts/nixos/hardware-configuration.nix`
+- `hosts/nixos/machine.nix`
 - `networking.hostName`
 - the login username and home directory
 - bootloader and disk details
@@ -23,6 +24,9 @@ are concentrated in a small set of parameters.
 The shared user module is `users/common/home.nix`; the flake passes
 `userFilesDir` to it so the account-specific snapshot directory can change
 without rewriting the reusable module.
+
+For a new machine, the main file to edit should be the per-host machine
+manifest in `hosts/<host>/machine.nix`, plus the hardware configuration.
 
 ## Reuse On Another Computer
 

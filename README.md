@@ -13,6 +13,9 @@ Repo-local memory for the system lives in `.ai/`. Start with:
 For a first reusable cross-machine version, see
 [`docs/portable-first-version.md`](docs/portable-first-version.md).
 
+For the next-computer flow, see
+[`docs/new-machine-onboarding.md`](docs/new-machine-onboarding.md).
+
 The main entry point is `flake.nix`. A clean NixOS install can clone this repo
 and build the `nixos` host to get the same system packages, desktop input
 method setup, screenshot shortcut, and clipboard history shortcut.
@@ -21,9 +24,11 @@ method setup, screenshot shortcut, and clipboard history shortcut.
 
 - `flake.nix` and `flake.lock`: pinned NixOS and Home Manager inputs
 - `hosts/nixos/`: host-level NixOS configuration and hardware profile
+- `hosts/nixos/machine.nix`: machine-specific host, user, and snapshot
+  settings for this computer
 - `users/common/home.nix`: shared Home Manager configuration applied to the
   selected login user
-- `users/qrbao/files/`: selected mutable app config copied into place
+- `users/qrbao/files/`: account-specific mutable app config copied into place
 - `system/current/` and `user/current/`: live-state snapshots for audit
 - `trace/`: redacted Codex prompt/action history and human-readable notes
 
